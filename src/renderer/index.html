@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <title>DualCore VM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">DC</div>
+      <span>DualCore VM</span>
+    </div>
+
+    <nav>
+      <button class="nav-item active">Dashboard</button>
+      <button class="nav-item">Virtual Machines</button>
+      <button class="nav-item">Settings</button>
+    </nav>
+
+    <div class="sidebar-footer">DUALCORE VM 1.0.0</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <span>Dashboard</span>
+      <span class="status">● SYSTEM READY</span>
+    </header>
+
+    <section class="welcome">
+      <p class="eyebrow">VIRTUALIZATION MANAGER</p>
+      <h1>Your virtual machines.</h1>
+      <p>Manage your operating systems from one place.</p>
+    </section>
+
+    <section class="vm-grid">
+      <article class="vm-card">
+        <div class="os-icon windows">W</div>
+        <p class="eyebrow">MICROSOFT</p>
+        <h2>Windows 11</h2>
+        <p class="description">Windows virtual machine</p>
+        <span class="vm-status">NOT CONFIGURED</span>
+        <button class="primary-button">Configure VM</button>
+      </article>
+
+      <article class="vm-card">
+        <div class="os-icon arch">A</div>
+        <p class="eyebrow">ARCH LINUX</p>
+        <h2>Arch Linux</h2>
+        <p class="description">Arch Linux virtual machine</p>
+        <span class="vm-status">NOT CONFIGURED</span>
+        <button class="primary-button">Configure VM</button>
+      </article>
+    </section>
+
+    <footer>DualCore VM · Independent virtual machines</footer>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
