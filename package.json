@@ -1,0 +1,24 @@
+
+{
+  "name": "dualcore-vm",
+  "version": "1.0.0",
+  "description": "Portable virtual machine manager for Windows and Linux",
+  "main": "src/main/main.js",
+  "author": "DualCore VM",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.dualcore.vm",
+    "productName": "DualCore VM",
+    "win": {
+      "target": ["portable"]
+    }
+  }
+}
