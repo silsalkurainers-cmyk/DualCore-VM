@@ -1,64 +1,53 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#080808">
   <title>DualCore VM</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <aside class="sidebar">
-    <div class="brand">
-      <div class="brand-icon">DC</div>
-      <span>DualCore VM</span>
-    </div>
-
-    <nav>
-      <button class="nav-item active">Dashboard</button>
-      <button class="nav-item">Virtual Machines</button>
-      <button class="nav-item">Settings</button>
-    </nav>
-
-    <div class="sidebar-footer">DUALCORE VM 1.0.0</div>
+    <div class="brand"><div class="brand-icon">DC</div><span>DualCore VM</span></div>
+    <div class="nav-item active">Virtual machines</div>
+    <div class="sidebar-footer">DUALCORE VM 1.1.0</div>
   </aside>
-
   <main class="main">
-    <header class="topbar">
-      <span>Dashboard</span>
-      <span class="status">● SYSTEM READY</span>
-    </header>
-
+    <header class="topbar"><span>Virtual machines</span><span id="host-status" class="status">CHECKING HOST…</span></header>
     <section class="welcome">
-      <p class="eyebrow">VIRTUALIZATION MANAGER</p>
+      <p class="eyebrow">WINDOWS HOST · QEMU BACKEND</p>
       <h1>Your virtual machines.</h1>
-      <p>Manage your operating systems from one place.</p>
+      <p>Run separate Arch Linux and Windows 11 virtual computers.</p>
     </section>
-
+    <section id="dependency-warning" class="notice" hidden></section>
     <section class="vm-grid">
-      <article class="vm-card">
-        <div class="os-icon windows">W</div>
-        <p class="eyebrow">MICROSOFT</p>
-        <h2>Windows 11</h2>
-        <p class="description">Windows virtual machine</p>
-        <span class="vm-status">NOT CONFIGURED</span>
-        <button class="primary-button">Configure VM</button>
+      <article class="vm-card" data-vm="windows">
+        <div class="os-icon windows">⊞</div><p class="eyebrow">MICROSOFT</p><h2>Windows 11</h2>
+        <p class="description">Windows 11 guest virtual machine</p>
+        <p class="detail" id="windows-iso">Installer ISO: not selected</p>
+        <p class="detail" id="windows-disk">Virtual disk: not created</p>
+        <span class="vm-status" id="windows-status">STOPPED</span>
+        <div class="actions"><button class="secondary-button" data-action="iso">Choose ISO</button><button class="secondary-button" data-action="disk">Create disk</button><button class="primary-button" data-action="start">Start VM</button><button class="stop-button" data-action="stop">Stop</button></div>
       </article>
-
-      <article class="vm-card">
-        <div class="os-icon arch">A</div>
-        <p class="eyebrow">ARCH LINUX</p>
-        <h2>Arch Linux</h2>
-        <p class="description">Arch Linux virtual machine</p>
-        <span class="vm-status">NOT CONFIGURED</span>
-        <button class="primary-button">Configure VM</button>
+      <article class="vm-card" data-vm="arch">
+        <div class="os-icon arch">A</div><p class="eyebrow">ARCH LINUX</p><h2>Arch Linux + KDE Plasma</h2>
+        <p class="description">Install Arch, then add the KDE Plasma desktop</p>
+        <p class="detail" id="arch-iso">Installer ISO: not selected</p>
+        <p class="detail" id="arch-disk">Virtual disk: not created</p>
+        <span class="vm-status" id="arch-status">STOPPED</span>
+        <div class="actions"><button class="secondary-button" data-action="iso">Choose ISO</button><button class="secondary-button" data-action="disk">Create disk</button><button class="primary-button" data-action="start">Start VM</button><button class="stop-button" data-action="stop">Stop</button></div>
       </article>
     </section>
-
-    <footer>DualCore VM · Independent virtual machines</footer>
+    <section class="help">
+      <h3>Before starting</h3>
+      <p>Install 64-bit QEMU for Windows and add its folder to PATH. Restart DualCore VM after installing it. Create a virtual disk and select an installer ISO for each guest.</p>
+      <p>Windows 11 guests also need UEFI firmware and a TPM 2.0 device; this initial QEMU launcher does not configure those yet. Do not start Windows 11 installation until that support is added.</p>
+      <p>Virtual disk files are created separately from your real drives. DualCore VM does not repartition or format your host disks.</p>
+    </section>
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+    <footer>DualCore VM · Windows 10 and Windows 11 host support</footer>
   </main>
-
   <script src="renderer.js"></script>
 </body>
 </html>
