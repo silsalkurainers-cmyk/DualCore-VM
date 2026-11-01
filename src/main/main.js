@@ -36,7 +36,7 @@ function getStatus() {
   const qemu = findExecutable("qemu-system-x86_64.exe") || findExecutable("qemu-system-x86_64");
   const qemuImg = findExecutable("qemu-img.exe") || findExecutable("qemu-img");
   return {
-    host: `${os.caption()} (${os.arch()})`,
+    host: `${os.platform()} ${os.release()} (${os.arch()})`,
     qemuFound: Boolean(qemu),
     qemuImgFound: Boolean(qemuImg),
     vms: Object.fromEntries(Object.keys(VM_DEFINITIONS).map(id => [id, {
