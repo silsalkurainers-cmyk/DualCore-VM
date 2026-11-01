@@ -1,8 +1,7 @@
-
 {
   "name": "dualcore-vm",
-  "version": "1.0.0",
-  "description": "Portable virtual machine manager for Windows and Linux",
+  "version": "1.1.0",
+  "description": "Portable QEMU virtual machine manager for Windows 10 and 11",
   "main": "src/main/main.js",
   "author": "DualCore VM",
   "license": "MIT",
@@ -19,6 +18,7 @@
     "productName": "DualCore VM",
     "win": {
       "target": ["portable"]
-    }
+    },
+    "artifactName": "DualCore-VM-${version}-Windows-Portable.${ext}"
   }
 }
